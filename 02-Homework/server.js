@@ -7,10 +7,9 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.use(express.static('public'))
 const PORT = process.env.PORT || 3001;
-app.use("/", htmlRoutes)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use("/", htmlRoutes)
 
 sequelize.sync().then(() => { app.listen(PORT, () => console.log('Now listening')); });
 
